@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CalendarView">
+        <attr name="style" format="integer">
+            <enum name="light" value="11" />
+            <enum name="dark" value="12" />
+        </attr>
+        <attr name="pickMode" format="integer">
+            <enum name="day" value="21" />
+            <enum name="week" value="22" />
+        </attr>
+        <attr name="monthNavigatorTextColor" format="color" />
+        <attr name="monthNavigatorButtonColor" format="color" />
+        <attr name="monthNavigatorBackgroundColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="MonthNavigator">
+        <attr name="textColor" format="color" />
+        <attr name="buttonColor" format="color" />
+        <attr name="backgroundColor" format="color" />
+    </declare-styleable>
+</resources>
+
