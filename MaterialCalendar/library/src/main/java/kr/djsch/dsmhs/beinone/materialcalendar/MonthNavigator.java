@@ -38,6 +38,11 @@ public class MonthNavigator extends LinearLayout {
     private int mBtnColor;
     private int mBackgroundColor;
 
+    public MonthNavigator(Context context) {
+        super(context);
+        init();
+    }
+
     public MonthNavigator(Context context, AttributeSet attrs) {
         super(context, attrs);
 
@@ -64,10 +69,9 @@ public class MonthNavigator extends LinearLayout {
         mDateTV = (TextView) mView.findViewById(R.id.tv_slimdatepicker_date);
         mCalendar = Calendar.getInstance();
 
-        super.setBackgroundColor(mBackgroundColor);
-        mDateTV.setTextColor(mTextColor);
-        mPrevIB.setColorFilter(mBtnColor);
-        mNextIB.setColorFilter(mBtnColor);
+        setBackgroundColor(mBackgroundColor);
+        setTextColor(mTextColor);
+        setButtonColor(mBtnColor);
 
         mPrevIB.setOnClickListener(new OnClickListener() {
             @Override

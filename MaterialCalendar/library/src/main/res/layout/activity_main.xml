@@ -11,6 +11,7 @@
     tools:context="kr.djsch.dsmhs.beinone.materialcalendar.MainActivity">
 
     <kr.djsch.dsmhs.beinone.materialcalendar.CalendarView
+        android:id="@+id/calendarview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </RelativeLayout>

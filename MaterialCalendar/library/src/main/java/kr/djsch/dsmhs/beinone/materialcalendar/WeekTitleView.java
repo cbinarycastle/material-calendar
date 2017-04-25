@@ -32,6 +32,11 @@ public class WeekTitleView extends LinearLayout {
     private int mTextColor;
     private int mBackgroundColor;
 
+    public WeekTitleView(Context context) {
+        super(context);
+        init();
+    }
+
     public WeekTitleView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 

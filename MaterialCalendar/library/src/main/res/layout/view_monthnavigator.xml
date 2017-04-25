@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:background="@android:color/transparent"
+        android:background="?android:attr/selectableItemBackground"
         android:src="@drawable/ic_navigate_before_white_24dp" />
 
     <TextView
@@ -29,7 +29,7 @@
         android:padding="8dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="@android:color/transparent"
+        android:background="?android:attr/selectableItemBackground"
         android:src="@drawable/ic_navigate_next_white_24dp" />
 
 </RelativeLayout>

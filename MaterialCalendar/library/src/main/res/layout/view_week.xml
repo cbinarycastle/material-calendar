@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <kr.djsch.dsmhs.beinone.materialcalendar.DayView
+        android:id="@+id/dv_sunday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:tag="1" />
+
+    <kr.djsch.dsmhs.beinone.materialcalendar.DayView
+        android:id="@+id/dv_monday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:tag="2" />
+
+    <kr.djsch.dsmhs.beinone.materialcalendar.DayView
+        android:id="@+id/dv_tuesday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:tag="3" />
+
+    <kr.djsch.dsmhs.beinone.materialcalendar.DayView
+        android:id="@+id/dv_wednesday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:tag="4" />
+
+    <kr.djsch.dsmhs.beinone.materialcalendar.DayView
+        android:id="@+id/dv_thursday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:tag="5" />
+
+    <kr.djsch.dsmhs.beinone.materialcalendar.DayView
+        android:id="@+id/dv_friday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:tag="6" />
+
+    <kr.djsch.dsmhs.beinone.materialcalendar.DayView
+        android:id="@+id/dv_saturday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:tag="7" />
+</LinearLayout>
