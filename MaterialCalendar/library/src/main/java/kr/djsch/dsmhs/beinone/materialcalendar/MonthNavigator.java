@@ -128,7 +128,7 @@ public class MonthNavigator extends LinearLayout {
     public void setButtonColor(int color) {
         mBtnColor = color;
         mPrevIB.setColorFilter(color);
-        mPrevIB.setColorFilter(color);
+        mNextIB.setColorFilter(color);
     }
 
     public void setBackgroundColor(int color) {
