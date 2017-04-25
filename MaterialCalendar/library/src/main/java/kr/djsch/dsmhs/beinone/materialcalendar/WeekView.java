@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by BeINone on 2017-04-13.
@@ -66,13 +67,13 @@ public class WeekView extends LinearLayout {
         dayView.setSelectedBackgroundColor(mSelectedDayBackgroundColor);
 
         dayView.setDay(calendar.get(Calendar.DAY_OF_MONTH));
-        dayView.setCalendar(calendar);
+        dayView.setDate(calendar.getTime());
         dayView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 v.setSelected(true);
                 if (mOnDaySelectedListener != null) {
-                    mOnDaySelectedListener.onDaySelected((DayView) v, ((DayView) v).getCalendar());
+                    mOnDaySelectedListener.onDaySelected((DayView) v, ((DayView) v).getDate());
                 }
             }
         });
@@ -91,6 +92,6 @@ public class WeekView extends LinearLayout {
     }
 
     public interface OnDaySelectedListener {
-        void onDaySelected(DayView v, Calendar calendar);
+        void onDaySelected(DayView v, Date date);
     }
 }

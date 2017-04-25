@@ -105,7 +105,8 @@ public class CalendarView extends LinearLayout {
     }
 
     private void initDayViews() {
-        Calendar cal = mMonthNavigator.getCalendar();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(mMonthNavigator.getDate());
         cal = CalendarUtils.setDayOfMonth(cal, 1);
 
         int month = CalendarUtils.getMonth(cal);
@@ -121,11 +122,11 @@ public class CalendarView extends LinearLayout {
 
             weekView.setOnDaySelectedListener(new WeekView.OnDaySelectedListener() {
                 @Override
-                public void onDaySelected(DayView v, Calendar calendar) {
+                public void onDaySelected(DayView v, Date date) {
                     clearDayViews();
                     v.setSelected(true);
                     if (mOnSelectedDayChangedListener != null) {
-                        mOnSelectedDayChangedListener.onSelectedDayChanged(calendar.getTime());
+                        mOnSelectedDayChangedListener.onSelectedDayChanged(date);
                     }
                 }
             });

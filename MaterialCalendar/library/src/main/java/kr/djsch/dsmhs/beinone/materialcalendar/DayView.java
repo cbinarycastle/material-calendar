@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by BeINone on 2017-04-13.
@@ -95,12 +96,12 @@ public class DayView extends LinearLayout {
         mDayTV.setText(String.valueOf(day));
     }
 
-    public void setCalendar(Calendar calendar) {
-        mCalendar = calendar;
+    public void setDate(Date date) {
+        mCalendar = Calendar.getInstance();
+        mCalendar.setTime(date);
     }
 
-    public Calendar getCalendar() {
-        Log.d("testLog", mCalendar.getTime().toString());
-        return mCalendar;
+    public Date getDate() {
+        return mCalendar.getTime();
     }
 }

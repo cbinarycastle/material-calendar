@@ -116,8 +116,8 @@ public class MonthNavigator extends LinearLayout {
         return sdf.format(mCalendar.getTime());
     }
 
-    public Calendar getCalendar() {
-        return mCalendar;
+    public Date getDate() {
+        return mCalendar.getTime();
     }
 
     public void setTextColor(int color) {
