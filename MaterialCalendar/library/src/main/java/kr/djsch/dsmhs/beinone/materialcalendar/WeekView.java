@@ -24,6 +24,7 @@ public class WeekView extends LinearLayout {
     private int mDayBackgroundColor;
     private int mSelectedDayBackgroundColor;
     private int mDayTextColor;
+    private int mSelectedDayTextColor;
 
     private OnDaySelectedListener mOnDaySelectedListener;
 
@@ -32,7 +33,8 @@ public class WeekView extends LinearLayout {
 
         mDayBackgroundColor = ContextCompat.getColor(context, R.color.colorPrimaryLight);
         mSelectedDayBackgroundColor = ContextCompat.getColor(context, R.color.colorAccentLight);
-        mDayTextColor = ContextCompat.getColor(context, R.color.textColorDisabledLight);
+        mDayTextColor = ContextCompat.getColor(context, R.color.textColorPrimaryLight);
+        mSelectedDayTextColor = mDayBackgroundColor;
 
         init();
     }
@@ -43,11 +45,12 @@ public class WeekView extends LinearLayout {
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.WeekView, 0, 0);
         try {
             int defaultDayBackgroundColor = ContextCompat.getColor(context, R.color.colorPrimaryLight);
-            int defaultDaySelectedBackgroundColor = ContextCompat.getColor(context, R.color.colorAccentLight);
-            int defaultDayTextColor = ContextCompat.getColor(context, R.color.textColorDisabledLight);
+            int defaultSelectedDayBackgroundColor = ContextCompat.getColor(context, R.color.colorAccentLight);
+            int defaultDayTextColor = ContextCompat.getColor(context, R.color.textColorPrimaryLight);
             mDayBackgroundColor = a.getColor(R.styleable.WeekView_dayBackgroundColor, defaultDayBackgroundColor);
-            mSelectedDayBackgroundColor = a.getColor(R.styleable.WeekView_selectedDayBackgroundColor, defaultDaySelectedBackgroundColor);
+            mSelectedDayBackgroundColor = a.getColor(R.styleable.WeekView_selectedDayBackgroundColor, defaultSelectedDayBackgroundColor);
             mDayTextColor = a.getColor(R.styleable.WeekView_dayTextColor, defaultDayTextColor);
+            mSelectedDayTextColor = a.getColor(R.styleable.WeekView_selectedDayTextColor, defaultDayBackgroundColor);
         } finally {
             a.recycle();
         }
@@ -65,6 +68,7 @@ public class WeekView extends LinearLayout {
         dayView.setBackgroundColor(mDayBackgroundColor);
         dayView.setTextColor(mDayTextColor);
         dayView.setSelectedBackgroundColor(mSelectedDayBackgroundColor);
+        dayView.setSelectedTextColor(mSelectedDayTextColor);
 
         dayView.setDay(calendar.get(Calendar.DAY_OF_MONTH));
         dayView.setDate(calendar.getTime());

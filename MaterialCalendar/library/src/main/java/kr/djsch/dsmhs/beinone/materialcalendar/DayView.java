@@ -31,6 +31,7 @@ public class DayView extends LinearLayout {
     private int mBackgroundColor;
     private int mSelectedBackgroundColor;
     private int mTextColor;
+    private int mSelectedTextColor;
 
     private Calendar mCalendar;
 
@@ -51,10 +52,11 @@ public class DayView extends LinearLayout {
         try {
             int defaultBackgroundColor = ContextCompat.getColor(context, R.color.colorPrimaryLight);
             int defaultSelectedBackgroundColor = ContextCompat.getColor(context, R.color.colorAccentLight);
-            int defaultTextColor = ContextCompat.getColor(context, R.color.textColorDisabledLight);
+            int defaultTextColor = ContextCompat.getColor(context, R.color.textColorPrimaryLight);
             mBackgroundColor = a.getColor(R.styleable.DayView_backgroundColor, defaultBackgroundColor);
             mSelectedBackgroundColor = a.getColor(R.styleable.DayView_dayBackgroundColor, defaultSelectedBackgroundColor);
             mTextColor = a.getColor(R.styleable.DayView_textColor, defaultTextColor);
+            mSelectedTextColor = a.getColor(R.styleable.DayView_textColor, defaultBackgroundColor);
         } finally {
             a.recycle();
         }
@@ -81,6 +83,7 @@ public class DayView extends LinearLayout {
         setBackgroundColor(mBackgroundColor);
         setTextColor(mTextColor);
         setSelectedBackgroundColor(mSelectedBackgroundColor);
+        setSelectedTextColor(mSelectedTextColor);
     }
 
     private void setDayBackground(int color) {
@@ -103,12 +106,18 @@ public class DayView extends LinearLayout {
         mDayBackground.setColorFilter(color, PorterDuff.Mode.MULTIPLY);
     }
 
+    public void setSelectedTextColor(int color) {
+        mSelectedTextColor = color;
+    }
+
     public void setSelected(boolean selected) {
         super.setSelected(selected);
         if (selected) {
             setDayBackground(mSelectedBackgroundColor);
+            mDayTV.setTextColor(mSelectedTextColor);
         } else {
             setDayBackground(mBackgroundColor);
+            mDayTV.setTextColor(mTextColor);
         }
     }
 

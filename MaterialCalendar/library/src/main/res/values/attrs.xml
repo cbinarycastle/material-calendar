@@ -32,9 +32,10 @@
     </declare-styleable>
 
     <declare-styleable name="WeekView">
-        <attr name="dayTextColor" format="color" />
         <attr name="dayBackgroundColor" />
         <attr name="selectedDayBackgroundColor" format="color" />
+        <attr name="dayTextColor" format="color" />
+        <attr name="selectedDayTextColor" format="color" />
     </declare-styleable>
 </resources>
 
