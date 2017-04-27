@@ -2,12 +2,15 @@ package kr.djsch.dsmhs.beinone.materialcalendar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,6 +27,7 @@ public class DayView extends LinearLayout {
 
     private TextView mDayTV;
 
+    private Drawable mDayBackground;
     private int mBackgroundColor;
     private int mSelectedBackgroundColor;
     private int mTextColor;
@@ -62,11 +66,26 @@ public class DayView extends LinearLayout {
         mView = LayoutInflater.from(getContext()).inflate(R.layout.view_day, this, true);
 
         mDayTV = (TextView) mView.findViewById(R.id.tv_day_day);
-        mDayTV.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.background_day));
+        // make mDayTV into square
+        mDayTV.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                mDayTV.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                mDayTV.setHeight(mDayTV.getMeasuredWidth());
+            }
+        });
+
+        mDayBackground = ContextCompat.getDrawable(getContext(), R.drawable.background_day);
+        mDayBackground.setColorFilter(mBackgroundColor, PorterDuff.Mode.MULTIPLY);
 
         setBackgroundColor(mBackgroundColor);
         setTextColor(mTextColor);
         setSelectedBackgroundColor(mSelectedBackgroundColor);
+    }
+
+    private void setDayBackground(int color) {
+        mDayBackground.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
+        mDayTV.setBackground(mDayBackground);
     }
 
     public void setBackgroundColor(int color) {
@@ -81,14 +100,15 @@ public class DayView extends LinearLayout {
 
     public void setSelectedBackgroundColor(int color) {
         mSelectedBackgroundColor = color;
+        mDayBackground.setColorFilter(color, PorterDuff.Mode.MULTIPLY);
     }
 
     public void setSelected(boolean selected) {
         super.setSelected(selected);
         if (selected) {
-            mDayTV.setBackgroundColor(mSelectedBackgroundColor);
+            setDayBackground(mSelectedBackgroundColor);
         } else {
-            mDayTV.setBackgroundColor(mBackgroundColor);
+            setDayBackground(mBackgroundColor);
         }
     }
 
