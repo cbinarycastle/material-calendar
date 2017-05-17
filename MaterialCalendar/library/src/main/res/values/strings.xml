@@ -8,4 +8,6 @@
     <string name="thursday">목</string>
     <string name="friday">금</string>
     <string name="saturday">토</string>
+    
+    <string name="date_format">yyyy년 MMM</string>
 </resources>

@@ -40,6 +40,11 @@ public class MonthNavigator extends LinearLayout {
 
     public MonthNavigator(Context context) {
         super(context);
+
+        mTextColor = ContextCompat.getColor(context, R.color.textColorPrimaryLight);
+        mBtnColor = ContextCompat.getColor(context, R.color.textColorSecondaryLight);
+        mBackgroundColor = ContextCompat.getColor(context, R.color.colorPrimaryLight);
+
         init();
     }
 

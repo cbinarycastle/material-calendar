@@ -14,9 +14,7 @@
             <enum name="day" value="21" />
             <enum name="week" value="22" />
         </attr>
-        <attr name="monthNavigatorTextColor" format="color" />
-        <attr name="monthNavigatorButtonColor" format="color" />
-        <attr name="monthNavigatorBackgroundColor" format="color" />
+        <attr name="buttonColor" />
     </declare-styleable>
 
     <declare-styleable name="MonthNavigator">
