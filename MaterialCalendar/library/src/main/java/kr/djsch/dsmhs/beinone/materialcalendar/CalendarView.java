@@ -94,6 +94,7 @@ public class CalendarView extends LinearLayout {
         mPrevIB = (ImageButton) findViewById(R.id.ib_calendar_prev);
         mNextIB = (ImageButton) findViewById(R.id.ib_calendar_next);
 
+        mViewPager.setPageTransformer(false, new MaterialPageTransformer());
         mViewPager.setAdapter(new CalendarPagerAdapter(
                 ((AppCompatActivity) getContext()).getSupportFragmentManager()));
         mViewPager.setCurrentItem(CalendarPagerAdapter.START_POSITION);
