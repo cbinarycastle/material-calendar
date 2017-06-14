@@ -62,7 +62,7 @@ public class WeekView extends LinearLayout {
         mView = LayoutInflater.from(getContext()).inflate(R.layout.view_week, this, true);
     }
 
-    public void setDayView(int dayOfWeek, final Calendar calendar) {
+    public void setDayView(int dayOfWeek, final Calendar calendar, boolean isSelected) {
         DayView dayView = (DayView) findViewWithTag(String.valueOf(dayOfWeek));
 
         dayView.setBackgroundColor(mDayBackgroundColor);
@@ -81,6 +81,10 @@ public class WeekView extends LinearLayout {
                 }
             }
         });
+
+        if (isSelected) {
+            dayView.setSelected(true);
+        }
     }
 
     public void clearDayViews() {

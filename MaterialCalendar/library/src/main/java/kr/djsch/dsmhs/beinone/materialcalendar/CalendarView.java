@@ -11,9 +11,12 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Interpolator;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import java.lang.reflect.Field;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -94,6 +97,18 @@ public class CalendarView extends LinearLayout {
         mViewPager.setAdapter(new CalendarPagerAdapter(
                 ((AppCompatActivity) getContext()).getSupportFragmentManager()));
         mViewPager.setCurrentItem(CalendarPagerAdapter.START_POSITION);
+
+        try {
+            Field mScroller;
+            mScroller = ViewPager.class.getDeclaredField("mScroller");
+            mScroller.setAccessible(true);
+            Interpolator interpolator = new DecelerateInterpolator(20.0f);
+            MaterialScroller scroller = new MaterialScroller(getContext(), interpolator);
+            // scroller.setFixedDuration(5000);
+            mScroller.set(mViewPager, scroller);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void initMonthNavigator() {
